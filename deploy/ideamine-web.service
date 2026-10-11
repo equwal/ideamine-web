@@ -1,0 +1,24 @@
+[Unit]
+Description=ideamine: one idea archive and dashboard for every machine
+After=network-online.target memstated.service
+Wants=network-online.target
+
+[Service]
+User=ideamine
+Group=ideamine
+Environment=IDEAMINE_HOME=/var/lib/ideamine
+Environment=IDEAMINE_SERVE_HOSTS=10.66.0.1,mem.equwal.com
+Environment=IDEAMINE_EMBED_URL=http://127.0.0.1:8081/v1
+Environment=IDEAMINE_MEMSTATE_URL=http://127.0.0.1:8766
+ExecStart=/opt/node/bin/node /opt/ideamine-web/bin/ideamine-web.js serve --port 4332
+Restart=always
+RestartSec=5
+MemoryMax=200M
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/ideamine
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

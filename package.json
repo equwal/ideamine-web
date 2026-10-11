@@ -1,0 +1,42 @@
+{
+  "name": "ideamine-web",
+  "version": "1.0.0",
+  "description": "The self-hosted ideamine dashboard: HTTP server, dashboard page, upload, Android wrapper, systemd unit",
+  "type": "module",
+  "bin": {
+    "ideamine-web": "bin/ideamine-web.js"
+  },
+  "exports": {
+    "./*": "./src/*.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dashboard",
+    "android",
+    "deploy",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equwal/ideamine-web.git"
+  },
+  "homepage": "https://github.com/equwal/ideamine-web",
+  "author": "equwal",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": ["ideamine", "dashboard", "kanban", "claude-code"],
+  "dependencies": {
+    "ideaboard": "github:equwal/ideaboard#v1.0.0",
+    "ideahook": "github:equwal/ideahook#v1.0.1",
+    "ideaprofile": "github:equwal/ideaprofile#v1.0.0"
+  },
+  "devDependencies": {
+    "fast-check": "^4.10.2"
+  }
+}
